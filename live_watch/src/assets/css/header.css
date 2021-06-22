@@ -1,0 +1,27 @@
+header
+{
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+
+.nav1
+{
+    margin-right: 450px;
+}
+
+.buscar
+{
+    width: 100px;
+    height: 35px;
+    background-color: #6B2B9D;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.navbar
+{
+    color: white;
+    background-color: black;
+}
