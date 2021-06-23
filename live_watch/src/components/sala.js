@@ -6,10 +6,17 @@ class Sala extends React.Component
 {
     render() {
         return(
-            <div className="">
+            <div className="area">
                 <div className="usuario">
 
                 </div>
+                <div className="xvideo">
+
+                </div>
+                <div className="livechat">
+
+                </div>
+
             </div>
 
         )

@@ -1,6 +1,25 @@
 .usuario
 {
     background-color: #6B2B9D;
-    width: 24%;
+    width: 25%;
+    height: 100vh;
+}
+
+.xvideo
+{
+    background-color: aqua;
+    width: 50%;
+    height: 100vh;
+}
+
+.area
+{
+    display: flex;
+}
+
+.livechat
+{
+    background-color: chartreuse;
+    width: 25%;
     height: 100vh;
 }

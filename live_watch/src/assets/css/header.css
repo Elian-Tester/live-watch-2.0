@@ -7,21 +7,48 @@ header
 
 .nav1
 {
-    margin-right: 450px;
+    margin-right: 400px;
+    width: 470px;
 }
 
-.buscar
+#buscar
 {
     width: 100px;
-    height: 35px;
+    height: 36px;
     background-color: #6B2B9D;
-    border-radius: 20px;
+    border-radius: 10px;
     color: white;
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: monospace  ;
 }
 .navbar
 {
     color: white;
     background-color: black;
 }
+
+#buscar:hover
+{
+    color: #6240bd;
+    background: #fff;
+    text-decoration: none;
+}
+
+.entrada
+{
+    font-family: monospace;
+    font-size: 15px;
+}
+.titulo
+{
+    margin-left: -220px;
+    font-size: 22px;
+    font-family: monospace;
+}
+
+.icono
+{
+    color: dodgerblue;
+}
+
