@@ -17,7 +17,7 @@ class Header  extends  React.Component
                         <h1  className="navbar-brand titulo">Live-Watch</h1>
                         <form className="d-flex nav1">
                             {/*Entrada de texto para escribir link */}
-                            <input className="form-control me-2 entrada" type="search" placeholder="Añadir link..." aria-label="Añadir"/>
+                            <input className="form-control me-2 entrada" type="search" placeholder="Pegar link..." aria-label="Añadir"/>
                             {/*Boton para buscar */}
                                 <button className="btn " type="submit" id="buscar">Añadir</button>
                         </form>

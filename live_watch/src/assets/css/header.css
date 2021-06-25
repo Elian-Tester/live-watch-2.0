@@ -14,10 +14,11 @@ header
 #buscar
 {
     width: 100px;
-    height: 36px;
-    background-color: #6B2B9D;
+    height: 35px;
+    background-color: white;
     border-radius: 10px;
-    color: white;
+    border-color: #6B2B9D;
+    color: #6B2B9D;
     margin-left: 10px;
     font-size: 16px;
     font-family: monospace  ;
@@ -30,15 +31,15 @@ header
 
 #buscar:hover
 {
-    color: #6240bd;
-    background: #fff;
+    color: white;
+    background: #6B2B9D;
     text-decoration: none;
 }
 
 .entrada
 {
     font-family: monospace;
-    font-size: 15px;
+    font-size: 13px;
 }
 .titulo
 {

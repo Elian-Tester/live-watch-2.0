@@ -1,6 +1,7 @@
 import React from "react";
 
 import css from '../assets/css/sala.css'
+import Chat from "./chat";
 
 class Sala extends React.Component
 {
@@ -14,7 +15,7 @@ class Sala extends React.Component
 
                 </div>
                 <div className="livechat">
-
+                    <Chat/>
                 </div>
 
             </div>

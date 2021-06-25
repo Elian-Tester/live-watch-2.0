@@ -1,0 +1,55 @@
+.escribir
+{
+    background-color: whitesmoke;
+    font-size: 13px;
+    font-family: monospace;
+    height: 40px;
+    width: 260px;
+}
+
+#enviar
+{
+    background-color: dodgerblue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: whitesmoke;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+h4
+{
+    font-family: "DejaVu Sans Condensed";
+    font-size: 20px;
+}
+
+
+
+main #chat {
+    background-color: lightcyan;
+    width: 25%;
+}
+#chat-salidas {
+    width:25%;
+    position: absolute;
+    bottom: 10px;
+}
+
+
+#boton-enviar {
+    width: 100px;
+    height: 35px;
+    background-color: limegreen;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.chat-salidas_input
+{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
