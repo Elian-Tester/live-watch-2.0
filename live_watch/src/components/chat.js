@@ -11,7 +11,67 @@ class Chat extends React.Component
                 </div>
                 <div>
                     <section id="chat">
-                        <section id="chat-mensaje">hola
+                        <section className="caja-texto">
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>
+                            Mensajes 1
+                            <br/>Mensajes 1
+                            <br/>
+
+
+
+
+                        </section>
+                        <section id="chat-mensaje">
                             <section id="chat-salidas">
                                 <div className="chat-salidas_input"><form className="d-flex escritura">
                                     {/*Entrada de texto para escribir mensajes */}

@@ -53,3 +53,11 @@ main #chat {
     display: flex;
     align-items: center;
 }
+
+.caja-texto
+{
+    background-color: gold;
+    width: 98%;
+    height: 75vh;
+    overflow-y: scroll;
+}
