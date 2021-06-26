@@ -1,6 +1,8 @@
 import React from "react";
-
 import css from '../assets/css/chat.css'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPaperPlane} from '@fortawesome/free-solid-svg-icons'
+
 class Chat extends React.Component
 {
     render() {
@@ -77,7 +79,9 @@ class Chat extends React.Component
                                     {/*Entrada de texto para escribir mensajes */}
                                     <input className="form-control me-2 escribir" type="text" placeholder="Escribir mensaje..." aria-label="Añadir"/>
                                     {/*Boton para enviar */}
-                                    <button className="btn " type="submit" id="enviar"></button>
+                                    <button className="btn " type="submit" id="enviar">
+                                        <FontAwesomeIcon icon={faPaperPlane}/>
+                                    </button>
                                 </form>
                                 </div>
                             </section>
