@@ -20,7 +20,6 @@ class App extends React.Component
                         <Route exact path='/Login' component={Login}/>
                     </Switch>
                 </BrowserRouter>
-
         )
     }
 }

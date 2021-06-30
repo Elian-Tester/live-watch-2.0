@@ -7,7 +7,7 @@ class Chat extends React.Component
 {
     render() {
         return(
-            <div>
+            <div className="livechat">
                 <div className="container-fluid">
                     <h4 className="text-center">Chat en Vivo</h4>
                 </div>
