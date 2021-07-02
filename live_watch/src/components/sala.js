@@ -14,7 +14,8 @@ class Sala extends React.Component
         this.state={
             keyWord:'',
             idVideo:'Gm0tYokffMU',
-            player: ''
+            player: '',
+            users:["garcia", "mendoza", "Chris","Vanesa","Bryan", "Ozel", "Omar","Magin"]
         }
     }
 
@@ -56,7 +57,7 @@ class Sala extends React.Component
     this.state.player = new YT.Player('player', {
         height: '360',
         width: '640',
-        videoId: this.state.idVideo,
+        videoId: '',
         events: {
             'onReady': this.onPlayerReady(),
             'onStateChange': onPlayerStateChange
@@ -90,7 +91,19 @@ class Sala extends React.Component
                 <Header onResponse={this.eventReturnFinish.bind(this)}/>
                 <div className="area">
 
-                    <Usuarios/>
+                    <div className="usuario">
+                        <div className="card">
+                        <div className="card-header text-white bg-dark">
+                            Conectados
+                        </div>
+                            <ul className="list-group list-group-flush">
+                                <For each="item" index="idx" of={this.state.users}>
+                                    <Usuarios user={item}/>
+                                </For>
+                            </ul>
+                        </div>
+
+                    </div>
                     {/*//_______________Contenido_________________*/}
                         <div className="xvideo">
                             <br/>

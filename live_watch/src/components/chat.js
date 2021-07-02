@@ -10,7 +10,8 @@ class Chat extends React.Component
         super();
         this.state={
             mensajeTexto:'',
-            mensajeCaja:''
+            mensajeCaja:[],
+            auxiliar:[]
         }
     }
 
@@ -27,8 +28,12 @@ class Chat extends React.Component
     sendMessage(e){
         e.preventDefault()
         console.log('Send >'+this.state.mensajeTexto)
+        this.state.auxiliar.push(this.state.mensajeTexto)
         this.setState({
-            mensajeCaja: this.state.mensajeCaja +' -- '+this.state.mensajeTexto
+            mensajeCaja: this.state.auxiliar
+        })
+        this.setState({
+            mensajeTexto:''
         })
     }
 
@@ -41,8 +46,10 @@ class Chat extends React.Component
                 <div>
                     <section id="chat">
                         <section className="caja-texto">
-                            {this.state.mensajeCaja}
-                            <br/>
+                            <For each="item" index="idx" of={ this.state.mensajeCaja }>
+                                { item }
+                                <br/>
+                            </For>
                         </section>
                         <section id="chat-mensaje">
                             <section id="chat-salidas">

@@ -14,7 +14,12 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modueles/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            "jsx-control-statements"
+                        ]
+                    }
                 }
 
             },
