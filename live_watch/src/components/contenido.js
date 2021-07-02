@@ -11,7 +11,7 @@ class Contenido extends React.Component
         super(props);
         console.log('en constructor')
         this.state = {
-            idVideo:'fernanflo',
+            idVideo:'Gm0tYokffMU',
             buscarVideo: this.props.keyWord
         }
     }
@@ -41,11 +41,7 @@ class Contenido extends React.Component
                 idVideo: idVideo
             })
         })*/
-        console.log(idVid + "id vid")
         //_____________________________________________
-
-        console.log(idVid + "id vid")
-
     }
 
 

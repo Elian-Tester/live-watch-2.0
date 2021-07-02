@@ -5,7 +5,7 @@ import Chat from "./chat";
 import Header from "./header";
 import Usuarios from "./usuarios";
 import Contenido from "./contenido";
-import YouTube from 'react-youtube';
+import YouTube from 'react-youtube'; //instalar dependancia
 
 class Sala extends React.Component
 {
@@ -13,7 +13,7 @@ class Sala extends React.Component
         super(props);
         this.state={
             keyWord:'',
-            idVideo:'',
+            idVideo:'Gm0tYokffMU',
             player: ''
         }
     }
@@ -30,7 +30,7 @@ class Sala extends React.Component
     }
 
     mandarUrl(buscar){
-
+        //buscar.preventDefault()
         console.log(buscar + ' en mandar url')
         //key 2 = AIzaSyAavj5-jWPW8Q3DJcKMhYhmfuPd-Kv6XvQ
         let key2= 'AIzaSyAavj5-jWPW8Q3DJcKMhYhmfuPd-Kv6XvQ';
@@ -66,7 +66,7 @@ class Sala extends React.Component
 }
     onReady(event){
         console.log('play video')
-        event.target.playVideo();
+        //event.target.playVideo();
     }
     onPlay(event){
         alert('play')
