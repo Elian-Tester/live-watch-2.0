@@ -6,6 +6,21 @@ import Header from "./header";
 import Usuarios from "./usuarios";
 import Contenido from "./contenido";
 import YouTube from 'react-youtube'; //instalar dependancia
+import { io } from "socket.io-client"; // npm install socket.io-client
+
+import SocketContext from '../context/socket-context'
+
+const socket= io.connect( "ws://localhost:3006" )
+socket.on('connect', ()=> {
+    console.log("Conexion exitosa", socket.id)
+})
+
+socket.on('nuevo_user', function(datos){
+    alert("nuevo usuario conectado: "+ datos.user);
+});
+
+
+
 
 class Sala extends React.Component
 {
@@ -15,8 +30,14 @@ class Sala extends React.Component
             keyWord:'',
             idVideo:'Gm0tYokffMU',
             player: '',
-            users:["garcia", "mendoza", "Chris","Vanesa","Bryan", "Ozel", "Omar","Magin"]
+            users:["garcia"],
+            usersAux:[]
         }
+    }
+
+    socketIniciar(){
+        //crear y conectar socket
+
     }
 
     eventReturnFinish(response){
@@ -24,6 +45,11 @@ class Sala extends React.Component
         console.log(response +'sala')
         let keywi = response;
         console.log(keywi + ' palabra en sala')
+        this.state.users.push(keywi)
+        this.setState({
+            usersAux: this.state.users
+        })
+
         this.setState({
             keyWord: keywi
         })
@@ -31,6 +57,7 @@ class Sala extends React.Component
     }
 
     mandarUrl(buscar){
+
         //buscar.preventDefault()
         console.log(buscar + ' en mandar url')
         //key 2 = AIzaSyAavj5-jWPW8Q3DJcKMhYhmfuPd-Kv6XvQ
@@ -47,8 +74,23 @@ class Sala extends React.Component
             console.log(idVideo)
             this.setState({
                 idVideo: idVideo
-            })
+            });
+            //emmit
+            socket.emit('envioVideoId', {videoId: idVideo}) //enviando el idVideo
         })
+
+    }
+
+    socketEscucha(){
+        socket.on('nuevoVideoId', datos =>{
+            this.setState({
+                idVideo: datos.videoId
+            });
+        });
+
+        socket.on('controlDeVideo', datos =>{
+            alert("nuevo Video Id en socket escucha: "+ datos.videoId);
+        });
 
     }
 
@@ -77,6 +119,9 @@ class Sala extends React.Component
     }
 
     render() {
+
+        this.socketEscucha()
+
         let opts = {
             //w: 560 o 640   h:315 o 390
             height: '315',
@@ -87,24 +132,26 @@ class Sala extends React.Component
         };
 
         return(
-            <div>
-                <Header onResponse={this.eventReturnFinish.bind(this)}/>
-                <div className="area">
 
-                    <div className="usuario">
-                        <div className="card">
-                        <div className="card-header text-white bg-dark">
-                            Conectados
-                        </div>
-                            <ul className="list-group list-group-flush">
-                                <For each="item" index="idx" of={this.state.users}>
-                                    <Usuarios user={item}/>
-                                </For>
-                            </ul>
-                        </div>
+            <SocketContext.Provider value={socket}>
+                <div>
+                    <Header onResponse={this.eventReturnFinish.bind(this)}/>
+                    <div className="area">
 
-                    </div>
-                    {/*//_______________Contenido_________________*/}
+                        <div className="usuario">
+                            <div className="card">
+                                <div className="card-header text-white bg-dark">
+                                    Conectados
+                                </div>
+                                <ul className="list-group list-group-flush">
+                                    <For each="item" index="idx" of={this.state.usersAux}>
+                                        <Usuarios user={item}/>
+                                    </For>
+                                </ul>
+                            </div>
+
+                        </div>
+                        {/*//_______________Contenido_________________*/}
                         <div className="xvideo">
                             <br/>
                             <YouTube
@@ -116,10 +163,10 @@ class Sala extends React.Component
                             />
 
                         </div>
-                    <Chat/>
+                        <Chat socket={socket}/>
+                    </div>
                 </div>
-            </div>
-
+            </SocketContext.Provider>
         )
     }
 }
