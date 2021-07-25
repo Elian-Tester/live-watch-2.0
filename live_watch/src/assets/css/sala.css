@@ -1,13 +1,13 @@
 .usuario
 {
-    background-color: #6B2B9D;
+    background-color: #0e0e10;
     width: 25%;
     height: 90vh;
 }
 
 .xvideo
 {
-    background-color: aqua;
+    background-color: #0e0e10;
     width: 50%;
     height: 90vh;
 }
@@ -22,4 +22,14 @@
     background-color: darkslategrey;
     width: 25%;
     height: 90vh;
+}
+
+.YouTube{
+    width: 650px;
+    height: 365px;
+}
+
+.titulo{
+    font-size: 1.2em;
+    color: aliceblue;
 }

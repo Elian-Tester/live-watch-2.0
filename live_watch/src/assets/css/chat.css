@@ -56,8 +56,28 @@ main #chat {
 
 .caja-texto
 {
-    background-color: gold;
+    background-color: #18181b;
     width: 98%;
     height: 75vh;
     overflow-y: scroll;
+}
+
+.colorUser{
+    color: #6bd06b;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.colorText{
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.text-center{
+    font-size: 1.2em;
+    color: aliceblue;
+}
+
+.livechat{
+    background-color: #0e0e10;
 }

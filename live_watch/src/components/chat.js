@@ -15,8 +15,12 @@ class Chat extends React.Component
         super(props);
         this.state={
             mensajeTexto:'',
-            mensajeCaja:[],
-            auxiliar:[],
+            mensajeCaja:[{
+                user:'', mensaje:''
+            }],
+            auxiliar:[{
+                user:'', mensaje:''
+            }],
             socketChat: props.socket,
             userName: window.localStorage.getItem("userName")
         }
@@ -31,7 +35,7 @@ class Chat extends React.Component
         this.state.socketChat.on('nuevo_mensaje', datos =>{
             console.log(datos.user+": "+ datos.mensaje);
 
-            this.state.auxiliar.push(datos.user+": "+ datos.mensaje)
+            this.state.auxiliar.push({ user: datos.user, mensaje: datos.mensaje})
             this.setState({
                 mensajeCaja: this.state.auxiliar
             })
@@ -77,14 +81,15 @@ class Chat extends React.Component
                     socket =>
                         <div className="livechat">
                             <div className="container-fluid">
-                                <h4 className="text-center">Chat en Vivo</h4>
+                                <h4 className="text-center text-center2">Chat en Vivo</h4>
                             </div>
                             <div>
                                 <section>
                                     <section className="caja-texto">
                                         <For each="item" index="idx" of={ this.state.mensajeCaja }>
-                                            { item }
+                                            <line>...</line> <line className="colorUser">{item.user} : </line><line className='colorText'>{item.mensaje}</line>
                                             <br/>
+
                                         </For>
                                     </section>
                                     <section id="chat-mensaje">

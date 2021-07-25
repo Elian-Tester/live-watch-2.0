@@ -11,6 +11,29 @@ class Login  extends  React.Component
         this.state={
             mensajeTexto: ''
         }
+        this.localizar()
+    }
+
+    options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+    };
+
+    success(pos) {
+    var crd = pos.coords;
+    console.log(crd)
+    console.log('Your current position is:');
+    console.log('Latitude : ' + crd.latitude);
+    console.log('Longitude: ' + crd.longitude);
+    console.log('More or less ' + crd.accuracy + ' meters.');
+};
+
+    error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+    localizar(){
+        navigator.geolocation.getCurrentPosition(this.success, this.error, this.options);
     }
 
     changeField_(e){

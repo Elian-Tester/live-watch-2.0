@@ -8,18 +8,22 @@ import Contenido from "./contenido";
 import YouTube from 'react-youtube'; //instalar dependancia
 import { io } from "socket.io-client"; // npm install socket.io-client
 
+
+const YTPlayer = require('yt-player')
+let player='';
+
+
+
 import SocketContext from '../context/socket-context'
 
-const socket= io.connect( "ws://localhost:3006" )
-socket.on('connect', ()=> {
+const socket= io.connect( "http://localhost:3000" ) //http://localhost:3000  - ws://localhost:3006
+socket.on('connection', ()=> {
     console.log("Conexion exitosa", socket.id)
 })
 
 socket.on('nuevo_user', function(datos){
     alert("nuevo usuario conectado: "+ datos.user);
 });
-
-
 
 
 class Sala extends React.Component
@@ -31,7 +35,8 @@ class Sala extends React.Component
             idVideo:'Gm0tYokffMU',
             player: '',
             users:["garcia"],
-            usersAux:[]
+            usersAux:[],
+            titulo:''
         }
     }
 
@@ -71,10 +76,11 @@ class Sala extends React.Component
         fetch(URL).then(response => response.json()).then(data =>{
             console.log(data)
             let idVideo = data.items[0].id.videoId;
-            console.log(idVideo)
+            let titulo = data.items[0].snippet.title;
+            player.load(idVideo, [player.play()])
             this.setState({
-                idVideo: idVideo
-            });
+                titulo: titulo
+            })
             //emmit
             socket.emit('envioVideoId', {videoId: idVideo}) //enviando el idVideo
         })
@@ -83,40 +89,50 @@ class Sala extends React.Component
 
     socketEscucha(){
         socket.on('nuevoVideoId', datos =>{
-            this.setState({
+            player.load(datos.videoId, [player.play()])
+            /*this.setState({
                 idVideo: datos.videoId
-            });
+            });*/
         });
 
-        socket.on('controlDeVideo', datos =>{
-            alert("nuevo Video Id en socket escucha: "+ datos.videoId);
+        socket.on('EventoControl', datos =>{
+            if(datos.eventoControl == 'pause'){
+                player.pause()
+            }
+            if(datos.eventoControl == 'play'){
+                player.play()
+            }
+
         });
 
     }
 
+    componentDidMount() {
+        const div = document.querySelector("div[class = 'player']")
+        player = new YTPlayer(div)
+        player.setVolume(100)
 
-    onYouTubeIframeAPIReady() {
-    this.state.player = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: '',
-        events: {
-            'onReady': this.onPlayerReady(),
-            'onStateChange': onPlayerStateChange
-        }
-    });
+        player.on('playing', () => {
+            this.play()
+        })
+        player.on('paused', () => {
+            this.pausa()
+        })
+    }
 
-}
-    onReady(event){
-        console.log('play video')
-        //event.target.playVideo();
+
+
+    pausa(){
+        //emmit
+        socket.emit('envioEventoControl', {eventoControl: 'pause' }) //enviando el idVideo
     }
-    onPlay(event){
-        alert('play')
+    play(){
+        //emmit
+        socket.emit('envioEventoControl', {eventoControl: 'play' }) //enviando el idVideo
     }
-    onPause(){
-        alert('pause')
-    }
+
+
+
 
     render() {
 
@@ -154,14 +170,22 @@ class Sala extends React.Component
                         {/*//_______________Contenido_________________*/}
                         <div className="xvideo">
                             <br/>
-                            <YouTube
+                            <center>
+                                <div className="player" id="player"/>
+                            {/*<YouTube
+                                className="YouTube"
+                                id='playerId'
                                 videoId={this.state.idVideo}
                                 opts={opts}
                                 onReady={this.onReady}
                                 onPlay={this.onPlay}
                                 onPause={this.onPause}
-                            />
-
+                            />*/}
+                                <br/>
+                                <center>
+                                    <h4 className='titulo'>{this.state.titulo}</h4>
+                                </center>
+                            </center>
                         </div>
                         <Chat socket={socket}/>
                     </div>
