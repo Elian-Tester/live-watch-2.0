@@ -17,7 +17,7 @@ let player='';
 
 import SocketContext from '../context/socket-context'
 
-const socket= io.connect( "http://localhost:3000" ) //http://localhost:3000  - ws://localhost:3006
+const socket= io.connect( "https://live-watch.herokuapp.com/" ) //http://localhost:3000  - ws://localhost:3006
 socket.on('connection', ()=> {
     console.log("Conexion exitosa", socket.id)
 })
