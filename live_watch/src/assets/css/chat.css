@@ -1,11 +1,20 @@
 .escribir
 {
+
     background-color: whitesmoke;
-    font-size: 13px;
+    font-size: 14px;
     font-family: monospace;
     height: 40px;
-    width: 260px;
+    width: 250px;
+    border-color: white;
+
 }
+.escribir:hover
+{
+    box-shadow: 2px 2px 15px yellow;
+}
+
+
 
 #enviar
 {
@@ -18,18 +27,17 @@
     display: flex;
     align-items: center;
 }
-h4
+#enviar:hover
 {
-    font-family: "DejaVu Sans Condensed";
-    font-size: 20px;
+    box-shadow: 2px 2px 15px whitesmoke;
 }
 
-
-
-main #chat {
-    background-color: lightcyan;
-    width: 25%;
+.hola1
+{
+    font-family: monospace;
+    font-size: 15px;
 }
+
 #chat-salidas {
     width:25%;
     position: absolute;
@@ -40,7 +48,6 @@ main #chat {
 #boton-enviar {
     width: 100px;
     height: 35px;
-    background-color: limegreen;
     border-radius: 20px;
     color: white;
     margin-left: 10px;
@@ -63,7 +70,7 @@ main #chat {
 }
 
 .colorUser{
-    color: #6bd06b;
+    color: mediumorchid	;
     font-weight: bold;
     font-size: 0.9em;
 }
@@ -75,9 +82,17 @@ main #chat {
 
 .text-center{
     font-size: 1.2em;
-    color: aliceblue;
+    color: white;
+    text-shadow: 2px 2px 15px white;
 }
 
 .livechat{
     background-color: #0e0e10;
+    opacity: .90;
 }
+
+.ichat
+{
+    color: #6bd06b;
+}
+

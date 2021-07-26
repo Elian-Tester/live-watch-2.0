@@ -13,43 +13,68 @@ header
 
 #buscar
 {
-    width: 100px;
+
+    width: 70px;
     height: 35px;
-    background-color: white;
+    background-color: honeydew;
     border-radius: 10px;
-    border-color: #6B2B9D;
-    color: #6B2B9D;
+    color: darkviolet;
     margin-left: 10px;
     font-size: 16px;
     font-family: monospace  ;
 }
+
+#buscar:hover
+{
+   opacity: 1;
+    color: white;
+    background: mediumorchid	;
+    box-shadow: 2px 2px 15px skyblue;
+}
+
+
 .navbar
 {
     color: white;
     background-color: black;
 }
 
-#buscar:hover
-{
-    color: white;
-    background: #6B2B9D;
-    text-decoration: none;
-}
 
 .entrada
 {
+    opacity: .95;
     font-family: monospace;
     font-size: 13px;
 }
-.titulo
+
+.entrada:hover
 {
-    margin-left: -220px;
+    opacity: 1;
+    box-shadow: 1px 1px 15px blueviolet;
+}
+
+.titulo1
+{
     font-size: 22px;
     font-family: monospace;
+    text-shadow: 1px 1px 2px skyblue, 0 0 1em gold, 0 0 0.2em dodgerblue;
+
 }
 
-.icono
+.live
 {
     color: dodgerblue;
+    font-size: 25px;
+    box-shadow: 2px 2px 15px fuchsia;
 }
 
+.boc
+{
+    margin-bottom: 4px;
+}
+
+.boc img
+{
+    width: 50px;
+    height: 50px;
+}

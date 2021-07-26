@@ -1,15 +1,17 @@
-.usuario
+.usuarioGen
 {
-    background-color: #0e0e10;
-    width: 25%;
-    height: 90vh;
+
+    width: 21%;
+    height: 91vh;
+    opacity: .90;
+
 }
 
 .xvideo
 {
-    background-color: #0e0e10;
-    width: 50%;
-    height: 90vh;
+
+    width: 54%;
+    height: 91vh;
 }
 
 .area
@@ -21,7 +23,7 @@
 {
     background-color: darkslategrey;
     width: 25%;
-    height: 90vh;
+    height: 91vh;
 }
 
 .YouTube{
@@ -32,4 +34,27 @@
 .titulo{
     font-size: 1.2em;
     color: aliceblue;
+}
+
+.conectados
+{
+    color: blueviolet;
+}
+
+.usuariosOnline
+{
+    font-family: "DejaVu Sans Condensed";
+    font-size: 17px;
+    text-shadow: 2px 2px 15px white;
+}
+
+.simon
+{
+    opacity: 1;
+    background-color: #6bd06b;
+}
+#video
+{
+    width: 700px;
+    height: 400px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import css from '../assets/css/chat.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faPaperPlane} from '@fortawesome/free-solid-svg-icons'
+import {faPaperPlane, faComments} from '@fortawesome/free-solid-svg-icons'
 import update from "immutability-helper";
 
 import { io } from "socket.io-client"; // npm install socket.io-client
@@ -25,6 +25,7 @@ class Chat extends React.Component
             userName: window.localStorage.getItem("userName")
         }
     }
+
 
     componentDidMount() {
         this.state.socketChat.on('connect', ()=> {
@@ -80,14 +81,14 @@ class Chat extends React.Component
                 {
                     socket =>
                         <div className="livechat">
-                            <div className="container-fluid">
-                                <h4 className="text-center text-center2">Chat en Vivo</h4>
+                            <div className="container-fluid hola1">
+                                <h3 className="text-center ">Chat Online <FontAwesomeIcon icon={faComments} className="ichat"/></h3>
                             </div>
                             <div>
                                 <section>
                                     <section className="caja-texto">
                                         <For each="item" index="idx" of={ this.state.mensajeCaja }>
-                                            <line>...</line> <line className="colorUser">{item.user} : </line><line className='colorText'>{item.mensaje}</line>
+                                            <line>...</line> <line className="colorUser">{item.user}: </line><line className='colorText'>{item.mensaje}</line>
                                             <br/>
 
                                         </For>
@@ -105,6 +106,7 @@ class Chat extends React.Component
                                                        onChange={this.changeField_.bind(this)}
                                                        aria-label="Añadir"/>
                                                 {/*Boton para enviar */}
+
                                                 <button className="btn " type="submit" id="enviar" onClick={this.sendMessage.bind(this)}>
                                                     <FontAwesomeIcon icon={faPaperPlane}/>
                                                 </button>

@@ -7,7 +7,8 @@ import Usuarios from "./usuarios";
 import Contenido from "./contenido";
 import YouTube from 'react-youtube'; //instalar dependancia
 import { io } from "socket.io-client"; // npm install socket.io-client
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPaperPlane, faUsers} from '@fortawesome/free-solid-svg-icons'
 
 const YTPlayer = require('yt-player')
 let player='';
@@ -140,8 +141,8 @@ class Sala extends React.Component
 
         let opts = {
             //w: 560 o 640   h:315 o 390
-            height: '315',
-            width: '560',
+            height: '340',
+            width: '600',
             playerVars: {
                 autoplay: 0,
             },
@@ -154,10 +155,10 @@ class Sala extends React.Component
                     <Header onResponse={this.eventReturnFinish.bind(this)}/>
                     <div className="area">
 
-                        <div className="usuario">
+                        <div className="usuarioGen">
                             <div className="card">
-                                <div className="card-header text-white bg-dark">
-                                    Conectados
+                                <div className="card-header text-white bg-dark text-center">
+                                    <h4 className="usuariosOnline">Usuarios Conectados <FontAwesomeIcon icon={faUsers} className="conectados"/></h4>
                                 </div>
                                 <ul className="list-group list-group-flush">
                                     <For each="item" index="idx" of={this.state.usersAux}>
@@ -169,9 +170,10 @@ class Sala extends React.Component
                         </div>
                         {/*//_______________Contenido_________________*/}
                         <div className="xvideo">
-                            <br/>
                             <center>
-                                <div className="player" id="player"/>
+                                <div className="player" id="video"/>
+
+
                             {/*<YouTube
                                 className="YouTube"
                                 id='playerId'

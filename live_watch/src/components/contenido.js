@@ -53,7 +53,7 @@ class Contenido extends React.Component
                 {console.log('en render')}
                 <h2>{this.props.keyWord}</h2>
                 <h2>{this.state.buscarVideo + 'xd'}</h2>
-                        <iframe width="560" height="315" src={"https://www.youtube.com/embed/"+this.state.idVideo}
+                        <iframe width="580" height="315" src={"https://www.youtube.com/embed/"+this.state.idVideo}
                         title="YouTube video player" frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen></iframe>
