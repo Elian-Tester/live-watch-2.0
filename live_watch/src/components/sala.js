@@ -113,6 +113,8 @@ class Sala extends React.Component
         player = new YTPlayer(div)
         player.setVolume(100)
 
+        player.load('Gm0tYokffMU', [player.pause()])
+
         player.on('playing', () => {
             this.play()
         })
