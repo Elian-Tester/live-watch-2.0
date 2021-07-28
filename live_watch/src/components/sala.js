@@ -22,7 +22,7 @@ socket.on('connection', ()=> {
 })
 
 socket.on('nuevo_user', function(datos){
-    alert(datos.user + " se ha unido a la sala ");
+    //alert(datos.user + " se ha unido a la sala ");
 });
 
 class Sala extends React.Component
@@ -49,10 +49,6 @@ class Sala extends React.Component
         console.log(response +'sala')
         let keywi = response;
         console.log(keywi + ' palabra en sala')
-        this.state.users.push(keywi)
-        this.setState({
-            usersAux: this.state.users
-        })
 
         this.setState({
             keyWord: keywi
@@ -77,11 +73,9 @@ class Sala extends React.Component
             let idVideo = data.items[0].id.videoId;
             let titulo = data.items[0].snippet.title;
             player.load(idVideo, [player.play()])
-            this.setState({
-                titulo: titulo
-            })
+
             //emmit
-            socket.emit('envioVideoId', {videoId: idVideo}) //enviando el idVideo
+            socket.emit('envioVideoId', {videoId: idVideo, title: titulo}) //enviando el idVideo
         })
 
     }
@@ -89,9 +83,9 @@ class Sala extends React.Component
     socketEscucha(){
         socket.on('nuevoVideoId', datos =>{
             player.load(datos.videoId, [player.play()])
-            /*this.setState({
-                idVideo: datos.videoId
-            });*/
+            this.setState({
+                titulo: datos.title
+            })
         });
 
         socket.on('EventoControl', datos =>{
@@ -109,9 +103,12 @@ class Sala extends React.Component
     componentDidMount() {
         socket.emit('datos_user', {usuario: window.localStorage.getItem("userName")}) //enviando el idVideo
         socket.on('nuevo_user', data=>{
-            this.state.users.push(data.user)
+            //this.state.users.push(data.user)
+            console.log(data.user)
+            let array=[];
+            array= data.user
             this.setState({
-                usersAux: this.state.users
+                usersAux: array
             })
         })
 
