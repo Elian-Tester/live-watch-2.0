@@ -23,9 +23,8 @@ socket.on('connection', ()=> {
 })
 
 socket.on('nuevo_user', function(datos){
-    alert("nuevo usuario conectado: "+ datos.user);
+    alert(datos.user + " se ha unido a la sala ");
 });
-
 
 class Sala extends React.Component
 {
@@ -35,7 +34,7 @@ class Sala extends React.Component
             keyWord:'',
             idVideo:'Gm0tYokffMU',
             player: '',
-            users:["garcia"],
+            users:[],
             usersAux:[],
             titulo:''
         }
@@ -109,6 +108,14 @@ class Sala extends React.Component
     }
 
     componentDidMount() {
+        socket.emit('datos_user', {usuario: window.localStorage.getItem("userName")}) //enviando el idVideo
+        socket.on('nuevo_user', data=>{
+            this.state.users.push(data.user)
+            this.setState({
+                usersAux: this.state.users
+            })
+        })
+
         const div = document.querySelector("div[class = 'player']")
         player = new YTPlayer(div)
         player.setVolume(100)
